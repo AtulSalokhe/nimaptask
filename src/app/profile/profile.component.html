@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <h1 class="text-primary">Profile</h1><br><br>
+    <div class="row">
+        
+        <div class="col-lg-3">
+            
+            <img src="{{ data.image }}" height="150px" alt=""><br><br>
+            <button class="btn btn-warning">Edit Photo</button>&nbsp;
+            <button class="btn btn-warning">Edit Profile</button>
+        </div>
+
+        <div class="col-lg-9">
+            <p class="profile">I'm {{ data.firstName }} and I'm above {{ data.age }} years and you can send your emails to <span style="color:cornflowerblue;">{{ data.email }}</span>. I live in the state of {{ data.state }}. I like to play hockey, football and reading books. And please send me newsletters. Please reach out to me on my phone number {{ data.phone }}.</p>
+
+            <br>
+            <button class="btn btn-success">I Agree</button>
+        </div>
+    </div>
+</div>
+
+<div class="container bg2 p-5">
+    <div class="container pb-4">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <section class="subscription">
+            <div class="text-center mydiv pt-5">
+              <h6 class="text-light">Subscribe To Our Job Seeker Mailing List </h6>
+              <div class="text-center mt-2">
+                <button class="btn btn-outline-primary ">Enter Your Email Address<i class="fa fa-envelope" buttn></i>
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

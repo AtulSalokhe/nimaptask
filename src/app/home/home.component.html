@@ -1,0 +1,287 @@
+<div class="container-fluid image img-fluid">
+
+  <div class=" pt-5">
+
+    <nav class="navbar navbar-expand-lg mt-2 ">
+      <div class="container">
+        <a class="navbar-brand text-warning demo" routerLink="/">Demo App</a>
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="../../assets/images/toggle.jpg" height="35px" class="rounded-pill">
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav nav nav-pills ms-auto  ">
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" routerLinkActive="active" data-bs-toggle="pill" aria-current="page"
+                routerLink="/">Home</a>
+            </li>
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" routerLinkActive="active" data-bs-toggle="pill" routerLink="/aboutus">ABOUT
+                US</a>
+            </li>
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" aria-current="page" routerLink="/">JOBS</a>
+            </li>
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" routerLink="/">CLIENTS</a>
+            </li>
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" aria-current="page" routerLink="/">EMPLOYERS</a>
+            </li>
+            <li class="nav-item ps-4">
+              <a class="nav-link text-white" routerLink="/">CONTACT US</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+      <h1 class="text-white">I'm looking for..</h1>
+
+      <div class="d-flex ">
+        <div class="row container">
+          <div class="col-lg-8 col-md-8 col-sm-8">
+            <input type="text" class="input form-control" placeholder="Enter a Job Description">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <button type="search" id="search" class="btn btn-info  ms-auto"> Search <i
+                class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="d-flex"> -->
+      <div class="row mt-5">
+        <div class="col-lg-2 col-md-2 col-sm-12 ">
+          <div class="form-check mt-5 check1">
+            <input class="form-check-input ms-4" type="checkbox" value="" id="flexCheckIndeterminate">
+            <label class="form-check-label ms-3 text-white" for="flexCheckIndeterminate">
+              Full Time
+            </label>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="form-check mt-5 check2">
+            <input class="form-check-input ms-4" type="checkbox" value="" id="flexCheckIndeterminate">
+            <label class="form-check-label ms-1 text-white" for="flexCheckIndeterminate">
+              Part Time/Casual/Freelance
+            </label>
+          </div>
+        </div>
+        <!-- <div class="col-lg-2 col-md-2 col-lg-12"></div> -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div id="select ">
+            <select id="drop" class="ms-5 mt-5 form-select">
+              <option value="">Search Your Location</option>
+              <option value="">Kolhapur</option>
+              <option value="">Pune</option>
+              <option value="">Mumbai</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-lg-12 mb-5"></div>
+
+        <!-- </div> -->
+      </div>
+      <div class="text-center mt-5">
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#mydemo">Registration</button>
+      </div>
+      <div class="modal fade" id="mydemo">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Registration</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="container">
+                <form [formGroup]="data" (ngSubmit)="submit(data.value)">
+                <div class="row" *ngIf="data">                  
+                    <div class="col-lg-3">
+                      <img src="{{ imagecode }}" height="100px" alt="">
+                      <input type="file" style="color: transparent;" (change)="handleUpload($event)">
+                    </div>
+                    <div class="col-lg-9">
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <div class="mb-3 mt-3">
+                            <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                            <em class="error text-danger small" *ngIf="data.controls.firstName.touched && data.controls.firstName.invalid">Please Enter First Name</em>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <div class="mb-3 mt-3">
+                            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                            <em class="error text-danger small" *ngIf="data.controls.lastName.touched && data.controls.lastName.invalid">Please Enter Last Name</em>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3 mt-3">
+                          <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                          <em class="error text-danger small" *ngIf="data.controls.email.touched && data.controls.email.invalid">Please Enter Email</em>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3 mt-3">
+                          <input type="text" formControlName="phone" class="form-control" placeholder="Phone">
+                          <em class="error text-danger small" *ngIf="data.controls.phone.touched && data.controls.phone.invalid">Please Enter Phone</em>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="mb-3 mt-3">
+                          <div class="col-lg-2 col-md-2 col-sm-2">Age</div>
+                          <div class="col-lg-10 col-md-10 col-sm-10">
+                            <input type="range" formControlName="rangeValue" min="0" max="100">
+                            <span>{{data.controls.rangeValue.value}}</span>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3 mt-3">
+                          <select formControlName="state" class="form-select">
+                            <option value="">State</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Dilhi">Dilhi</option>
+                            <option value="Gujrat">Gujrat</option>
+                          </select>
+                          <em class="error text-danger small" *ngIf="data.controls.state.touched && data.controls.state.invalid">Please Select State</em>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3 mt-3">
+                          <select formControlName="country" class="form-select">
+                            <option value="">Country</option>
+                            <option value="India">India</option>
+                            <option value="America">America</option>
+                            <option value="Austrelia">Austrelia</option>
+                          </select>
+                          <em class="error text-danger small" *ngIf="data.controls.country.touched && data.controls.country.invalid">Please Select Country</em>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3 mt-3">
+                          <input type="text" formControlName="tags" class="form-control" placeholder="tags">
+                        </div>
+                        <span class="badge bg-secondary">Cricket <span style="color: yellow;">X</span></span>&nbsp;
+                        <span class="badge bg-secondary">football <span style="color: yellow;">X</span></span>&nbsp;
+                        <span class="badge bg-secondary">hockey <span style="color: yellow;">X</span></span>
+                      </div>
+
+
+                      <div class="form-check">
+                        <div class="mb-3 mt-3">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember">subscribe to newsletter
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                          <button type="submit" [disabled]="data.invalid" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg1 p-5">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="creative text-center pt-5"> <b class="header1"> We're Leaders in</b><br> <b class="header2"> Creative
+          Digital Recruitment </b>
+      </div>
+      <span>
+        <hr class="line mx-auto" style="color: blue;" width="100px">
+
+      </span>
+    </div>
+    <p class="text-center mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, consequatur laborum
+      <br> molestiae voluptatum,voluptatem autem iure
+    </p>
+    <div class="text-center mt-5 ">
+      <button class="btn btn-outline-primary ">Find Out More About Us !</button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg2 p-5">
+  <div class="container pb-4">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <section class="subscription">
+          <div class="text-center mydiv pt-5">
+            <h6 class="text-light">Subscribe To Our Job Seeker Mailing List </h6>
+            <div class="text-center mt-2">
+              <button class="btn btn-outline-primary ">Enter Your Email Address<i class="fa fa-envelope" buttn></i>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg3">
+  <div class="container">
+    <section class="footer pt-5">
+      <div class="row">
+
+        <!-- <div class=""> -->
+        <div class="col-lg-5 col-md-5 col-sm-5">
+          <div class="text-primary" id="email">
+            <div class="row">
+              <div class="col-lg-1 col-md-1 col-sm-1">
+                <img src="../../assets/images/messageicon.jpg" height="30px" alt="">
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8">
+                <input type="text" id="focs" class="form-control">
+              </div>
+            </div>
+            <br>
+            <h6> © Copyright@ 2014 Two Byts Counslting Terms And Policies</h6>
+          </div>
+        </div>
+        <br>
+
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 icon mx-auto mt-5">
+          <button class="btn btn-primary"><img src="../../assets/images/twitter.jpg" height="20px" alt="">
+            Twitt</button>&nbsp;
+          <button class="btn btn-primary" id="icons"><img src="../../assets/images/twitter.jpg" height="20px"
+              alt="">Like</button>
+        </div>
+        <!-- </div> -->
+      </div>
+    </section>
+  </div>
+</div>
